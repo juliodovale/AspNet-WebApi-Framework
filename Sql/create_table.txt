@@ -1,0 +1,47 @@
+CREATE DATABASE dbo.agenda;
+
+CREATE TABLE dbo.usuario
+  (
+     id         INT IDENTITY (1, 1),
+     nome       VARCHAR(120),
+     email      VARCHAR(120),
+     senha      VARCHAR(320),
+     nascimento DATETIME,
+     idgenero   INT
+  );
+
+CREATE TABLE dbo.genero
+  (
+     id        INT IDENTITY (1, 1),
+     descricao VARCHAR(12)
+  );
+
+CREATE TABLE dbo.evento
+  (
+     id            INT IDENTITY (1, 1),
+     idtipo        INT,
+     nome          VARCHAR(120),
+     descricao     VARCHAR(120),
+     data          DATETIME,
+     local         VARCHAR (120),
+     participantes INT,
+     idstatus      INT
+  );
+
+CREATE TABLE dbo.tipo_evento
+  (
+     id        INT IDENTITY (1, 1),
+     descricao VARCHAR (120)
+  );
+
+CREATE TABLE dbo.status_evento
+  (
+     id        INT IDENTITY (1, 1),
+     descricao VARCHAR (120)
+  );
+
+CREATE TABLE dbo.participantes_evento
+  (
+     idevento  INT,
+     idusuario INT
+  );  
